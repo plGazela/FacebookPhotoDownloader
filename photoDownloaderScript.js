@@ -12,6 +12,11 @@ let sizeOfAlbum = 4;
 let albumName = "Photo.jpg";
 
 // Run the script
+try {
+    findFirstPhoto();
+} catch (error) {
+    console.log("The first photo didn't find, attempting to download the album...");
+}
 downloadAlbum(sizeOfAlbum);
 
 // A function looping through the album and downloading it
@@ -48,8 +53,14 @@ async function downloadPhoto(photoSource, fileName) {
     downloadLink.remove();
 }
 
+// A function that finds and goes to the first photo
+function findFirstPhoto() {
+    const firstPhotoLink = document.getElementsByClassName("x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xa49m3k xqeqjp1 x2hbi6w x13fuv20 xu3j5b3 x1q0q8m5 x26u7qi x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xdl72j9 x2lah0s xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x2lwn1j xeuugli xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1ja2u2z x1t137rt x1o1ewxj x3x9cwd x1e5q0jg x13rtm0m x1q0g3np x87ps6o x1lku1pv x1rg5ohu x1a2a7pz x1ey2m1c xds687c x10l6tqk x17qophe x13vifvy x1pdlv7q")[0];
+    firstPhotoLink.click();
+}
+
 // A function that finds and goes to the next photo
-function goToNextPhoto () {
+function goToNextPhoto() {
     const nextPhotoBtn = document.getElementsByClassName("x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xa49m3k xqeqjp1 x2hbi6w x13fuv20 xu3j5b3 x1q0q8m5 x26u7qi x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xdl72j9 x2lah0s xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x2lwn1j xeuugli xexx8yu x4uap5 x18d9i69 xkhd6sd x1n2onr6 x16tdsg8 x1hl2dhg xggy1nq x1ja2u2z x1t137rt x1o1ewxj x3x9cwd x1e5q0jg x13rtm0m x3nfvp2 x1q0g3np x87ps6o x1lku1pv x1a2a7pz x5yr21d")[1];
     nextPhotoBtn.click();
 }
